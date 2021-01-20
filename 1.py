@@ -15,13 +15,13 @@ class TrafficLight:
     def running(self, color):
         if color == self.__color[0]:
             print('\033[41m')
-            time.sleep(1)
+            time.sleep(7)
         elif  color == self.__color[1]:
             print('\033[43m')
-            time.sleep(1)
+            time.sleep(2)
         elif  color == self.__color[2]:
             print('\033[42m')
-            time.sleep(1)
+            time.sleep(5)
         else:
             print('Нет такого цвета!')
 
@@ -34,6 +34,8 @@ while True:
     traffic_light.running(col)
     print('\033[0m')
     a.append(str(col))
+    if a[count] == ' ' and a[count + 1] != 'r': # первый цвет должен быть красным
+        break
     if a[count] == 'r' and a[count + 1] != 'y':
         break
     elif a[count] == 'y' and a[count + 1] != 'g':
